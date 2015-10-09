@@ -18,7 +18,7 @@ public class Test {
 		user1.setPassword("1234");
 		user1.setTel("15623236300");
 		UserService userService = new UserServiceImpl();
-		//userService.addUser(user1);
+		userService.addUser(user1);
 		AlarmInfo ai = new AlarmInfo();
 		ai.setUser(user1);
 		ai.setLatitude(30.2);
@@ -26,7 +26,7 @@ public class Test {
 		ai.setRadius(20.23);
 		ai.setState(0);
 		AlarmInfoService alarmService = new AlarmInfoServiceImpl();
-		//alarmService.addAlarmInfo(ai);
+		alarmService.addAlarmInfo(ai);
 		List list = alarmService.getAlarmInfoList("1", "5");
 		List<String> jsonList = new ArrayList<String>();
 		for (int i = 0; i < list.size(); i++) {

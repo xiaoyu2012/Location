@@ -43,3 +43,15 @@ if (cookieMap.containsKey("easyuiTheme")) {
 <script type="text/javascript"
 	src="http://www.jeasyui.net/Public/js/easyui/locale/easyui-lang-zh_CN.js"
 	charset="utf-8"></script>
+	
+<style type="text/css">
+    /*-- 消除grid屏闪问题 --//*/
+    .datagrid-mask{
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+    .datagrid-mask-msg{
+      opacity:0;
+      filter:alpha(opacity=0);
+    }
+</style>

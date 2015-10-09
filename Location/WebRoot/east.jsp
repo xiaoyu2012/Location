@@ -52,6 +52,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         });   
           
     });  
+    
+    var sec = 0;
+	timerID = setInterval("Reflash()",2000);
+	
+	function Reflash(){
+	$('#mydatagrid').datagrid('reload');
+	}
+    
       
 </script>
 
