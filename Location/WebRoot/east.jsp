@@ -53,13 +53,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           
     });  
     
-    var sec = 0;
-	timerID = setInterval("Reflash()",2000);
+    
+	timerID = setInterval("Reflash()",2000);     //2秒刷新一次
 	
 	function Reflash(){
 	$('#mydatagrid').datagrid('reload');
 	}
     
-      
+    $(function() {  
+        var row = $('#mydatagrid').datagrid('getSelected');
+    } );
+   
+    if(row) {
+    	alert('UserId:' + row.userId + 'Address:' + address );
+    }
+    
 </script>
 
