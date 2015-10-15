@@ -12,7 +12,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<th data-options="field:'userId',width:50,align:'right'">报警人</th>
 				<th data-options="field:'address',width:70,align:'right'">报警位置</th>
 				<th data-options="field:'state',width:80,align:'right'">报警时间</th>	
-				<th 		
+				<th hidden="hidden"	data-options="field:'radius',width:80,align:'right'">半径</th>	
+				<th hidden="hidden"	data-options="field:'longitude',width:80,align:'right'">经度</th>
+				<th hidden="hidden"	data-options="field:'latitude',width:80,align:'right'">纬度</th>
+				<th hidden="hidden"	data-options="field:'alarmInfoId',width:80,align:'right'">报警类型</th>
 			</tr>
 		</thead>
 		</table> 	
@@ -24,7 +27,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<th data-options="field:'userId',width:50,align:'right'">报警人</th>
 				<th data-options="field:'address',width:100,align:'right'">报警位置</th>
-				<th data-options="field:'state',width:100,align:'right'">报警时间</th>			
+				<th data-options="field:'state',width:100,align:'right'">报警时间</th>	
+				<th hidden="hidden"	data-options="field:'radius',width:80,align:'right'">半径</th>	
+				<th hidden="hidden"	data-options="field:'longitude',width:80,align:'right'">经度</th>
+				<th hidden="hidden"	data-options="field:'latitude',width:80,align:'right'">纬度</th>
+				<th hidden="hidden"	data-options="field:'alarmInfoId',width:80,align:'right'">报警类型</th>		
 			</tr>
 		</thead>
 		</table> 	
@@ -68,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <<script type="text/javascript">	
  	$('#mydatagrid').datagrid({   
  		onClickRow: function(index, row) {
- 			addTab('taobao', 'http://www.taobao.com');
+ 			var userId = row["userId"];
  		}
  	});
 	var row = $('#mydatagrid').datagrid('getSelected');	

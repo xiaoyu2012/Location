@@ -33,10 +33,10 @@
 				<li><a onclick="addTab('home','map/location.jsp')">待处理</a></li>
 				<li><a onclick="addTab('ccnu','http://www.ccnu.edu.cn')">CCNU</a></li>				
 			</div>
-			<div title="List2" data-options="iconCls:'icon-ok'"
+			<div title="查询" data-options="iconCls:'icon-ok'"
 				style="padding:10px;">
-				<li><a>2_1</a></li>
-				<li><a>2_2</a></li>
+				<li><a  onclick="addTab('用户信息','showAllUserAction')">查询用户信息</a></li>
+				<li><a>查询报警信息</a></li>
 			</div>
 		</div>
 	</div>
