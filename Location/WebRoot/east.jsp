@@ -1,7 +1,9 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
+request.setCharacterEncoding("utf-8");
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+
 %>
 
 <div class="easyui-tabs">
@@ -62,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     });  
     
     
-	timerID = setInterval("Reflash()",2000);     //2秒刷新一次
+	//timerID = setInterval("Reflash()",2000);     //2秒刷新一次
 	
 	function Reflash(){
 		$('#mydatagrid').datagrid('reload');
@@ -76,6 +78,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	$('#mydatagrid').datagrid({   
  		onClickRow: function(index, row) {
  			var userId = row["userId"];
+ 			var state = row["state"];
+ 			var radius = row["radius"];
+ 			var longitude = row["longitude"];
+ 			var latitude = row["latitude"];
+ 			var alarmInfoId = row["alarmInfoId"];
+ 			var address = row["address"];
+ 			addTab(userId,"map/mapPoint.jsp?longitude="+longitude+"&latitude="+latitude+"&address=" + address);
  		}
  	});
 	var row = $('#mydatagrid').datagrid('getSelected');	

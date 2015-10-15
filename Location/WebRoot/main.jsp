@@ -31,11 +31,11 @@
 			<div title="报警记录" data-options="iconCls:'icon-ok'"
 				style="overflow:auto;padding:10px;">
 				<li><a onclick="addTab('home','map/location.jsp')">待处理</a></li>
-				<li><a onclick="addTab('ccnu','http://www.ccnu.edu.cn')">CCNU</a></li>				
+				<!-- <li><a onclick="addTab('ccnu','http://www.ccnu.edu.cn')">CCNU</a></li>				 -->
 			</div>
 			<div title="查询" data-options="iconCls:'icon-ok'"
 				style="padding:10px;">
-				<li><a  onclick="addTab('用户信息','showAllUserAction')">查询用户信息</a></li>
+				<li><a  onclick="addTab('用户信息','showAllUserAction.action')">查询用户信息</a></li>
 				<li><a>查询报警信息</a></li>
 			</div>
 		</div>

@@ -33,4 +33,6 @@ public interface UserDao {
 	 * @return
 	 */
 	public List<User> findByTel(String tel);
+	
+	public List<User> findAll();
 }

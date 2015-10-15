@@ -11,7 +11,9 @@
 	</package>
 	
 	<package name="struts2" extends="struts-default">
-
+		<action name="showAllUserAction" class="action.ShowAllUserAction">
+			<result name="success" > userinfo.jsp</result>
+		</action>
 	</package>
 	
 </struts>    

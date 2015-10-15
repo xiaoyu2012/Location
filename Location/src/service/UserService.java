@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import po.User;
 
 public interface UserService {
@@ -20,5 +22,7 @@ public interface UserService {
 	 * @return
 	 */
 	public int allowedLogin(String tel, String password);
+	
+	public List<User> showAllUser();
 
 }

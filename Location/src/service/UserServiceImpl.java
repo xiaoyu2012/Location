@@ -28,6 +28,12 @@ public class UserServiceImpl implements UserService {
 			return LOGIN_FAIL;		//密码不正确	
 		
 	}
+
+	@Override
+	public List<User> showAllUser() {
+		List<User> users = userDao.findAll();
+			return users;
+	}
 	
 
 

@@ -175,6 +175,7 @@ public class AlarmInfo {
 	 * 返回AlarmInfo对象的一个json
 	 * @return 返回AlarmInfo对象的一个json的String
 	 */
+	@SuppressWarnings("deprecation")
 	public String toJSONString() {      
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("alarmInfoId", this.getAlarmInfoId());
@@ -185,7 +186,7 @@ public class AlarmInfo {
 		jsonObject.put("address", this.getAddress());
 		jsonObject.put("type", this.getType());
 		jsonObject.put("state", this.getState());
-		jsonObject.put("time", this.getTime());
+		jsonObject.put("time", this.getTime().toGMTString());
 		jsonObject.put("remark", this.getRemark());		
 		return jsonObject.toString();
 	}

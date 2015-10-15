@@ -101,5 +101,23 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	@Override
+	public List<User> findAll() {
+		log.debug("getting All User instance:");
+		
+		try {
+			Session session = HibernateSessionFactory.getSession();//获得Session对象		
+			
+			Query query = session.createQuery("from User");		
+			List<User> list = query.list();					//查询结果保存到list中			
+			HibernateSessionFactory.closeSession();		//关闭Session对象
+			return list;
+			
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
 
 }
