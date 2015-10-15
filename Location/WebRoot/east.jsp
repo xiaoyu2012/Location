@@ -11,7 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<th data-options="field:'userId',width:50,align:'right'">报警人</th>
 				<th data-options="field:'address',width:70,align:'right'">报警位置</th>
-				<th data-options="field:'state',width:80,align:'right'">报警时间</th>			
+				<th data-options="field:'state',width:80,align:'right'">报警时间</th>	
+				<th 		
 			</tr>
 		</thead>
 		</table> 	
@@ -31,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 <script type="text/javascript">  
-    $(function() {  
+    $(function() {          //当文档执行完毕就执行
         $('#mydatagrid').datagrid({          
               
             pageSize : 5,//默认选择的分页是每页5行数据  
@@ -57,16 +58,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	timerID = setInterval("Reflash()",2000);     //2秒刷新一次
 	
 	function Reflash(){
-	$('#mydatagrid').datagrid('reload');
+		$('#mydatagrid').datagrid('reload');
 	}
-    
-    $(function() {  
-        var row = $('#mydatagrid').datagrid('getSelected');
-    } );
-   
-    if(row) {
-    	alert('UserId:' + row.userId + 'Address:' + address );
-    }
+       
     
 </script>
 
+
+<<script type="text/javascript">	
+ 	$('#mydatagrid').datagrid({   
+ 		onClickRow: function(index, row) {
+ 			addTab('taobao', 'http://www.taobao.com');
+ 		}
+ 	});
+	var row = $('#mydatagrid').datagrid('getSelected');	
+	
+    if(row) {
+    	alert('UserId:' + row.userId + 'Address:' + address );
+    }
+</script>

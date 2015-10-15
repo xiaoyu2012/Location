@@ -30,7 +30,7 @@
 		<div class="easyui-accordion">
 			<div title="报警记录" data-options="iconCls:'icon-ok'"
 				style="overflow:auto;padding:10px;">
-				<li><a onclick="addTab('baidu','http://www.baidu.com')">待处理</a></li>
+				<li><a onclick="addTab('home','map/location.jsp')">待处理</a></li>
 				<li><a onclick="addTab('ccnu','http://www.ccnu.edu.cn')">CCNU</a></li>				
 			</div>
 			<div title="List2" data-options="iconCls:'icon-ok'"
@@ -46,7 +46,7 @@
 	<div data-options="region:'center'" style="overflow: hidden;">
 		
 	<div id="main_tab" class="easyui-tabs" data-options="tools:'#tab-tools'" >
-		<div title="baidu" data-options="closable:true" >
+		<div title="home" data-options="closable:true" >
 			<iframe scrolling="yes" frameborder="0"  src="map/location.jsp" style="width:100%;height:100%;"></iframe>
 		</div>
 	</div>
