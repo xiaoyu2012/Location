@@ -1,7 +1,4 @@
-/action
-/dao
-/hibernate
-/hibernate.cfg.xml
 /po
+/dao
 /service
-/struts.xml
+/action

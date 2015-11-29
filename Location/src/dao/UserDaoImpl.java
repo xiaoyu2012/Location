@@ -49,11 +49,18 @@ public class UserDaoImpl implements UserDao {
 			Session session = HibernateSessionFactory.getSession();//获得Session对象
 			Transaction  transaction = null;   //声明一个事务对象
 			transaction = session.beginTransaction();
-			User user = new User();
-			user = (User)session.get("User", userId);   //User是Entity的name
+			Query query = session.createQuery("from User as users where users.userId = ?");
+			query.setInteger(0, userId);
+			List list = query.list();			
+			//user = (User)session.get("User", userId);   //User是Entity的name
 			transaction.commit();
 			HibernateSessionFactory.closeSession();		//关闭Session对象			
-			return user;
+			
+			if(!list.isEmpty()) {
+				return (User)list.get(0);
+			}else{
+				return null;
+			}	
 		} catch (RuntimeException re) {
 			log.error("get failed", re);			
 			throw re;
@@ -91,7 +98,8 @@ public class UserDaoImpl implements UserDao {
 			Query query = session.createQuery("from User as user where user.tel = ?");		
 			query.setString(0, tel);		//查询获取用户名字
 			System.out.println("2222221");			
-			List<User> list = query.list();					//查询结果保存到list中			
+			List<User> list = query.list();					//查询结果保存到list中
+			System.out.println(list.get(0).getTel());
 			HibernateSessionFactory.closeSession();		//关闭Session对象
 			return list;
 			

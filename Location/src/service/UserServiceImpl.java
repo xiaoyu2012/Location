@@ -18,11 +18,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int allowedLogin(String tel, String password) {
-		List<User> users = userDao.findByName(tel);		
-		if(users.isEmpty())
+	public int allowedLogin(int userId, String password) {
+		User user = userDao.findById(userId);	
+		if(user == null)
 			return LOGIN_NOUSER;     //找不到此用户
-		else if(users.get(0).getPassword().equals(password))
+		else if(user.getPassword().equals(password))
 			return LOGIN_SUCCESS;	//用户的电话和密码都正确
 		else
 			return LOGIN_FAIL;		//密码不正确	

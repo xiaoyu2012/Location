@@ -60,7 +60,7 @@ public class AlarmInfoAction extends ActionSupport {
 		pw.write(jsonObject.toString());// 转化为Json格式
 		pw.flush();
 		pw.close();
-		
+		 
 		log.info(jsonObject.toString());
 	}
 

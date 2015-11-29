@@ -21,7 +21,7 @@ public interface UserService {
 	 * @param password 密码
 	 * @return
 	 */
-	public int allowedLogin(String tel, String password);
+	public int allowedLogin(int	userId, String password);
 	
 	public List<User> showAllUser();
 
