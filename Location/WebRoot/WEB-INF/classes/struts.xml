@@ -3,17 +3,36 @@
 <struts>
 <constant name="struts.i18n.encoding" value="utf-8"></constant>
 	<package name="json" extends="json-default">
-
-		<action name="GetAllAlarmInfoAction" class="action.AlarmInfoAction" method="getAllAlarmInfo">
-			<result type="json">  </result>      <!-- json类型的result， 不需要视图资源， 不需要加/east.jsp -->
-	
+		
+		<interceptors>
+			<!-- 定义了一个名为authority的拦截器 -->
+			<interceptor name="authority" 
+				class="interceptor.AuthInterceptor"/>
+		</interceptors>
+		
+		<!-- 定义全局Result -->
+		<global-results>
+			<!-- 当返回login视图名时，转入loginForm.jsp页面 -->
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
+		<action name="getAllAlarmInfoAction" class="action.AlarmInfoAction" method="getAllAlarmInfo">
+			<result type="json">  </result>      <!-- json类型的result， 不需要视图资源， 不需要加/east.jsp -->	
+			<interceptor-ref name="defaultStack"/>
+			<!-- 应用自定义拦截器 -->
+			<interceptor-ref name="authority"/>
+		</action>
+		
+		<action name="addAlarmInfoAction" class="action.AddAlarmInfoAction">
+			<result type="json"> </result>
 		</action>
 	</package>
 	
 	<package name="struts2" extends="struts-default">
 		<action name="loginAction" class="action.LoginAction">
  			<result name="success">/WEB-INF/content/main.jsp</result><!--进入主页面--> 			
- 			<result name="input">login.jsp</result><!--登录失败页面--> 	
+ 			<result name="input">/login.jsp</result><!--登录失败页面--> 	
+ 			<result name="exit">/login.jsp</result>		<!--退出系统， 返回页面-->
  			<!-- 省略了type, 默认为dispatcher, 即 type="dispatcher", 是转发forward-->
  		</action> 	
 		<action name="showAllUserAction" class="action.ShowAllUserAction">

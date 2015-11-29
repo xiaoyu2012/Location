@@ -18,16 +18,17 @@ import service.AlarmInfoServiceImpl;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import dao.UserDaoImpl;
+import dao.AlarmInfoDaoImpl;
 
 public class AlarmInfoAction extends ActionSupport {
-	private static final Log log = LogFactory.getLog(UserDaoImpl.class);
+	private static final Log log = LogFactory.getLog(AlarmInfoDaoImpl.class);
 	private JSONObject jsonObj;
 	private String rows;// 每页显示的记录数
 	private String page;// 当前第几页
 	private AlarmInfoService alarmInfoService;
 
-	// 查询出所有学生信息
+	
+	// 查询出所有报警信息
 	public String getAllAlarmInfo() throws Exception {  
 		alarmInfoService = new AlarmInfoServiceImpl();
 		System.out.println("page=" + page + ", rows=" + rows);

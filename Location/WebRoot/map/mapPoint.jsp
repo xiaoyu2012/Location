@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("utf-8");
+	request.setCharacterEncoding("utf-8");   //只对post请求的消息体中的数据起作用
 	String contextPath = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
@@ -8,6 +8,7 @@
 	String longitude = request.getParameter("longitude");
 	String latitude = request.getParameter("latitude");
 	String address = request.getParameter("address");
+	address = new String(address.trim().getBytes("ISO-8859-1"), "utf-8");      //解决get请求中文参数乱码 
 	System.out.println(longitude +"," +  latitude + ", " + address);
 	
 %>
@@ -34,7 +35,7 @@ body,html,#allmap {
 </body>
 </html>
 <script type="text/javascript">
-	// 百度地图API功能
+	// 百度地图API功能	
 	var map = new BMap.Map("allmap");
 	var point = new BMap.Point("<%=longitude%>", "<%=latitude%>");
 	var marker = new BMap.Marker(point);  // 创建标注
@@ -43,7 +44,7 @@ body,html,#allmap {
 	var opts = {
 	  width : 200,     // 信息窗口宽度
 	  height: 100,     // 信息窗口高度
-	  title : "武汉市华中师范大学9号楼" , // 信息窗口标题
+	  title : "<%=address%>" , // 信息窗口标题
 	  enableMessage:true,//设置允许信息窗发送短息
 	}
 	var infoWindow = new BMap.InfoWindow("<%= "经度： " + longitude + ",纬度：" + latitude%>", opts);  // 创建信息窗口对象

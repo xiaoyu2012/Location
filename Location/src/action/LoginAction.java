@@ -1,5 +1,9 @@
 package action;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
 import service.AdminService;
 import service.AdminServiceImpl;
 
@@ -31,6 +35,8 @@ public class LoginAction extends ActionSupport {
 	public String execute() throws Exception {
 		int result = adminService.allowedLogin(adminName, password);
 		if(result == adminService.LOGIN_SUCCESS ) {
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("adminName", adminName);
 			return this.SUCCESS;
 		} 
 		else if(result == adminService.LOGIN_NOUSER)	{
@@ -41,5 +47,12 @@ public class LoginAction extends ActionSupport {
 			return this.INPUT;
 		}
 		 
+	}
+	
+	//退出系统，清除Session和request中的内容
+	public String exit(){
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.invalidate();
+		return "exit";
 	}
 }
