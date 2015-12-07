@@ -41,7 +41,7 @@ public class AddAlarmInfoAction extends ActionSupport {
 	public String execute() throws Exception {
 		
 		HttpServletResponse response = ServletActionContext.getResponse();
-		
+		System.out.println("在addAlarmInfoAction中的address: " + address);
 		AlarmInfo alarmInfo = new AlarmInfo();
 		alarmInfo.setUser(userDao.findById(userId));
 		alarmInfo.setLongitude(longitude);
@@ -160,8 +160,8 @@ public class AddAlarmInfoAction extends ActionSupport {
 
 
 
-	public void setTime(Timestamp time) {
-		this.time = time;
+	public void setTime(String time) {
+		this.time = Timestamp.valueOf(time);
 	}
 
 

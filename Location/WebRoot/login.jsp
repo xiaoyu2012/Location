@@ -1,8 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gbk"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>�ֻ�ʵʱ������λϵͳ��¼ҳ��</title>
+<title>手机实时报警定位系统登录页面</title>
 <jsp:include page="include.jsp"></jsp:include>
 <style type="text/css">
 <!--
@@ -54,7 +54,7 @@ body {
 												<td height="198" align="right" valign="top">
 													<div class="panel panel-primary">
 														<div class="panel-heading">
-															<h1 class="panel-title"><strong>�ֻ�ʵʱ��λ����ϵͳ</strong></h1>
+															<h1 class="panel-title"><strong>手机实时定位报警系统</strong></h1>
 														</div>
 														<div class="panel-body">
 															<table width="100%" border="0" cellpadding="0"
@@ -63,15 +63,15 @@ body {
 														<tr>
 															<td width="5%">&nbsp;</td>
 															<td width="95%" height="25" class="left_txt"><p>
-															   1-ʵʱ��ʾ������λ����Ϣ </p></td>
+															   1-实时显示报警人位置信息 </p></td>
 														</tr>
 														<tr>
 															<td>&nbsp;</td>
-															<td height="25" class="left_txt"><p>2- �鿴������Ϣ</p></td>
+															<td height="25" class="left_txt"><p>2- 查看报警信息</p></td>
 														</tr>
 														<tr>
 															<td>&nbsp;</td>
-															<td height="25" class="left_txt"><p>3- ��ѯ�û�����</p></td>
+															<td height="25" class="left_txt"><p>3- 查询用户资料</p></td>
 														</tr>
 													</table>
 														</div>
@@ -101,7 +101,7 @@ body {
 
 														<div class="col-md-offset-4 col-md-4">
 															<div class="panel panel-primary">
-																<div class="panel-heading">���½</div>
+																<div class="panel-heading">请登陆</div>
 																<div class="panel-body">
 																	<p>																	
 																		<FONT color="red">${tip}</FONT>
@@ -109,23 +109,23 @@ body {
 
 																	<p>
 																		<FONT color="red"><s:actionerror /></FONT>
-																		<!--��ʾ������Ϣ -->
+																		<!--显示错误信息 -->
 																	</p>
 																	<form id="LoginAction" name="LoginAction"
 																		action="loginAction.action" method="post"
 																		enctype="multipart/form-data">
 																		<div class="form-group">
-																			<label for="LoginAction_userName">����Ա��:</label> <input
+																			<label for="LoginAction_userName">管理员名:</label> <input
 																				class="form-control" name="adminName" value=""
 																				id="LoginAction_userName" type="text">
 																		</div>
 																		<div class="form-group">
-																			<label for="LoginAction_password">����:</label> <input
+																			<label for="LoginAction_password">密码:</label> <input
 																				class="form-control" name="password"
 																				id="LoginAction_password" type="password">
 																		</div>
 																		<input class="btn btn-primary" id="LoginAction_0"
-																			value="��½" type="submit">
+																			value="登陆" type="submit">
 																	</form>
 																</div>
 															</div>
@@ -136,22 +136,22 @@ body {
 													</div> <%-- <form name="myform" action="loginAction.action" method="post">
 	                        <table cellSpacing="0" cellPadding="0" width="100%" border="0" height="143" id="table212">
 	                          <tr>
-	                          	<td colspan="2"><FONT color="red"><s:actionerror/></FONT></td><!--��ʾ������Ϣ --> 
+	                          	<td colspan="2"><FONT color="red"><s:actionerror/></FONT></td><!--显示错误信息 --> 
 	                          </tr>
 	                          <tr>
-	                            <td width="14%" height="38" class="top_hui_text"><span class="login_txt">����Ա����&nbsp;&nbsp; </span></td>
+	                            <td width="14%" height="38" class="top_hui_text"><span class="login_txt">管理员名：&nbsp;&nbsp; </span></td>
 	                            <td height="38" colspan="2" class="top_hui_text"><input name="adminName" class="editbox4" value="" size="20">                            </td>
 	                          </tr>
 	                          <tr>
-	                            <td width="14%" height="35" class="top_hui_text"><span class="login_txt"> �� �룺 &nbsp;&nbsp; </span></td>
+	                            <td width="14%" height="35" class="top_hui_text"><span class="login_txt"> 密 码： &nbsp;&nbsp; </span></td>
 	                            <td height="35" colspan="2" class="top_hui_text"><input class="editbox4" type="password" size="20" name="password">
 	                              <img src="images/luck.gif" width="19" height="18"> </td>
 	                          </tr>
 	                      
 	                          <tr>
 	                            <td height="35" >&nbsp;</td>
-	                            <td width="19%" height="35" ><input name="Submit" type="submit" class="button" id="Submit" value="�� ¼"> </td>
-	                            <td width="67%" class="top_hui_text"><input name="cs" type="button" class="button" id="cs" value="ȡ ��" onClick="showConfirmMsg1()"></td>
+	                            <td width="19%" height="35" ><input name="Submit" type="submit" class="button" id="Submit" value="登 录"> </td>
+	                            <td width="67%" class="top_hui_text"><input name="cs" type="button" class="button" id="cs" value="取 消" onClick="showConfirmMsg1()"></td>
 	                          </tr>
 	                        </table>
 	                        <br>
@@ -174,7 +174,7 @@ body {
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					class="login-buttom-bg">
 					<tr>
-						<td align="center"><span class="login-buttom-txt STYLE1">ʵʱ��λ����ϵͳCopyright
+						<td align="center"><span class="login-buttom-txt STYLE1">实时定位报警系统Copyright
 								&copy; 2014-2015 </span></td>
 					</tr>
 				</table>

@@ -1,1 +1,7 @@
+/action
+/dao
+/hibernate
+/hibernate.cfg.xml
 /interceptor
+/po
+/service
