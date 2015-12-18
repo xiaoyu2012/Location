@@ -1,6 +1,8 @@
 package po;
 
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,13 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import net.sf.json.JSONObject;
-import net.sf.json.JSONString;
 
 @Entity
 @Table(name="alarminfo")
 public class AlarmInfo {
 	/**
-	 * 用户id,自增型
+	 * 报警信息id,自增型
 	 */
 	@Id @Column(name="alarm_info_id")   //用户id,自增型
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -31,6 +32,18 @@ public class AlarmInfo {
 	@ManyToOne(targetEntity=User.class)
 	@JoinColumn(name="user_id", referencedColumnName="user_id", nullable=false)      //报警人的编号， 外键
 	private User user; 		
+	
+	/**
+	 * 标识号， 表示一个用户一个报警的唯一编号，一次报警的所有数据包的标识号相同
+	 */
+	@Column(name="identify")
+	private Integer identify;
+	
+	/**
+	 * 每一次报警的序列号， 从1开始递增
+	 */
+	@Column(name="syn")
+	private Integer syn;
 	
 	/**
 	 * 经度
@@ -111,6 +124,24 @@ public class AlarmInfo {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	
+
+	public Integer getIdentify() {
+		return identify;
+	}
+
+	public void setIdentify(Integer identify) {
+		this.identify = identify;
+	}
+
+	public Integer getSyn() {
+		return syn;
+	}
+
+	public void setSyn(Integer syn) {
+		this.syn = syn;
+	}
 
 	public double getLongitude() {
 		return longitude;
@@ -154,8 +185,9 @@ public class AlarmInfo {
 		this.state = state;
 	}
 
-	public Timestamp getTime() {
-		return time;
+	public String getTime() {
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return sdf.format(time);
 	}
 
 	public void setTime(Timestamp time) {
@@ -180,13 +212,15 @@ public class AlarmInfo {
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("alarmInfoId", this.getAlarmInfoId());
 		jsonObject.put("userId", this.getUser().getUserId());
+		jsonObject.put("identify", this.getIdentify());
+		jsonObject.put("syn", this.getSyn());
 		jsonObject.put("longitude", this.getLongitude());
 		jsonObject.put("latitude", this.getLatitude());
 		jsonObject.put("radius", this.getRadius());
 		jsonObject.put("address", this.getAddress());
 		jsonObject.put("type", this.getType());
 		jsonObject.put("state", this.getState());
-		jsonObject.put("time", this.getTime().toGMTString());
+		jsonObject.put("time", this.getTime());
 		jsonObject.put("remark", this.getRemark());		
 		return jsonObject.toString();
 	}

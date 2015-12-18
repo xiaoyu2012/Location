@@ -20,7 +20,8 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import dao.AlarmInfoDaoImpl;
 
-public class AlarmInfoAction extends ActionSupport {
+
+public class GetAllAlarmInfoAction extends ActionSupport {
 	private static final Log log = LogFactory.getLog(AlarmInfoDaoImpl.class);
 	private JSONObject jsonObj;
 	private String rows;// 每页显示的记录数
@@ -42,7 +43,7 @@ public class AlarmInfoAction extends ActionSupport {
 		}
 			
 		
-		this.toBeJson(jsonList, alarmInfoService.getAlarmInfoTotal());
+		this.toBeJson(jsonList, jsonList.size());
 		return SUCCESS;
 	}
 

@@ -13,27 +13,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<tr>
 				<th data-options="field:'userId',width:50,align:'right'">报警人</th>
 				<th data-options="field:'address',width:70,align:'right'">报警位置</th>
-				<th data-options="field:'state',width:80,align:'right'">报警时间</th>	
+				<th data-options="field:'time',width:80,align:'right'">报警时间</th>	
 				<th hidden="hidden"	data-options="field:'radius',width:80,align:'right'">半径</th>	
 				<th hidden="hidden"	data-options="field:'longitude',width:80,align:'right'">经度</th>
 				<th hidden="hidden"	data-options="field:'latitude',width:80,align:'right'">纬度</th>
-				<th hidden="hidden"	data-options="field:'alarmInfoId',width:80,align:'right'">报警类型</th>
+				<th hidden="hidden"	data-options="field:'alarmInfoId',width:80,align:'right'">报警ID</th>
+				<th hidden="hidden"	data-options="field:'type',width:80,align:'right'">报警类型</th>
+				<th hidden="hidden"	data-options="field:'identify',width:80,align:'right'">识别号</th>
 			</tr>
 		</thead>
 		</table> 	
 	</div> 
 	<div title="报警历史记录">	
-		<table class="easyui-datagrid" style="width:297px;height:500px"
-			data-options="singleSelect:true,collapsible:true,url:'getAllAlarmInfoAction.action',method:'post'">
+		<table id="mydatagrid2" style="width:297px;height:500px">
 		<thead>
 			<tr>
 				<th data-options="field:'userId',width:50,align:'right'">报警人</th>
-				<th data-options="field:'address',width:100,align:'right'">报警位置</th>
-				<th data-options="field:'state',width:100,align:'right'">报警时间</th>	
+				<th data-options="field:'address',width:70,align:'right'">报警位置</th>
+				<th data-options="field:'time',width:80,align:'right'">报警时间</th>	
 				<th hidden="hidden"	data-options="field:'radius',width:80,align:'right'">半径</th>	
 				<th hidden="hidden"	data-options="field:'longitude',width:80,align:'right'">经度</th>
 				<th hidden="hidden"	data-options="field:'latitude',width:80,align:'right'">纬度</th>
-				<th hidden="hidden"	data-options="field:'alarmInfoId',width:80,align:'right'">报警类型</th>		
+				<th hidden="hidden"	data-options="field:'alarmInfoId',width:80,align:'right'">报警ID</th>
+				<th hidden="hidden"	data-options="field:'type',width:80,align:'right'">报警类型</th>
+				<th hidden="hidden"	data-options="field:'identify',width:80,align:'right'">识别号</th>
 			</tr>
 		</thead>
 		</table> 	
@@ -78,13 +81,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	$('#mydatagrid').datagrid({   
  		onClickRow: function(index, row) {
  			var userId = row["userId"];
+ 			var identify = row["identify"];
+ 			/*
  			var state = row["state"];
  			var radius = row["radius"];
  			var longitude = row["longitude"];
  			var latitude = row["latitude"];
  			var alarmInfoId = row["alarmInfoId"];
  			var address = row["address"];
- 			addTab(userId,"map/mapPoint.jsp?longitude="+longitude+"&latitude="+latitude+"&address=" + address);
+ 			var time = row["time"];
+ 			*/
+ 			addTab(userId,"getOnceAlarmInfoAction.action?userId="+userId+"&identify="+identify);
  		}
  	});
 	var row = $('#mydatagrid').datagrid('getSelected');	

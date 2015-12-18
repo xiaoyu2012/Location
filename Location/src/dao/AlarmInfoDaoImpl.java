@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -94,7 +95,7 @@ public class AlarmInfoDaoImpl implements AlarmInfoDao {
         int pagesize = Integer.parseInt((rows == null || rows == "0") ? "10": rows);	//每页多少行        
         try {
         	Session session = HibernateSessionFactory.getSession();
-        	List list = session.createQuery("from AlarmInfo").setFirstResult((currentpage-1)*pagesize).setMaxResults(pagesize).list();
+        	List<AlarmInfo> list = session.createQuery("from AlarmInfo as alarmInfo where alarmInfo.syn = 1").setFirstResult((currentpage-1)*pagesize).setMaxResults(pagesize).list();
         	HibernateSessionFactory.closeSession();
         	return list;  
         } catch(RuntimeException re) {
@@ -117,5 +118,27 @@ public class AlarmInfoDaoImpl implements AlarmInfoDao {
     		throw re;
     	}
     }
+
+	@Override
+	public List<AlarmInfo> getOnceAlarmInfoList(int userId, int identify) {
+		log.debug("get AlarmInfo with userId" + userId + ", identify=" + identify );
+        
+        try {
+        	Session session = HibernateSessionFactory.getSession();
+        	Query query = session.createQuery("from AlarmInfo as alarmInfo where alarmInfo.user.userId = ? and alarmInfo.identify=?");
+        	query.setInteger(0, userId);
+        	query.setInteger(1,identify);
+        	List<AlarmInfo> list = query.list();
+        	HibernateSessionFactory.closeSession();
+        	return list;  
+        } catch(RuntimeException re) {
+        	log.error("get failed" + re);
+        	throw re;
+        }   
+	 
+	}
+
+
+
 
 }

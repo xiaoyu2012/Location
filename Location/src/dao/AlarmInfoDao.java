@@ -35,6 +35,16 @@ public interface AlarmInfoDao {
 	 */
 	public List<AlarmInfo> getAlarmInfoList(String page, String rows);
 	
+	
+	/**
+	 * 根据userId和identify查询某个用户一次报警的全部位置信息包， syn从1开始递增
+	 * @param userId
+	 * @param identify
+	 * @return
+	 */
+	public List<AlarmInfo> getOnceAlarmInfoList(int userId, int identify);
+	
+	
 	/**
 	 * 统计一共有多少数据   
 	 * @return AlarmInfoTotalNumber

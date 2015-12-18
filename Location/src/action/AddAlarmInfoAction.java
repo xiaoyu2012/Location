@@ -26,6 +26,8 @@ public class AddAlarmInfoAction extends ActionSupport {
 	private static AlarmInfoService alarmInfoService = new AlarmInfoServiceImpl();
 	private static UserDao userDao = new UserDaoImpl();
 	private int userId;
+	private int identify;
+	private int syn;
 	private double longitude;
 	private double latitude;
 	private double radius;
@@ -44,6 +46,8 @@ public class AddAlarmInfoAction extends ActionSupport {
 		System.out.println("在addAlarmInfoAction中的address: " + address);
 		AlarmInfo alarmInfo = new AlarmInfo();
 		alarmInfo.setUser(userDao.findById(userId));
+		alarmInfo.setIdentify(identify);
+		alarmInfo.setSyn(syn);
 		alarmInfo.setLongitude(longitude);
 		alarmInfo.setLatitude(latitude);
 		alarmInfo.setRadius(radius);
@@ -81,6 +85,33 @@ public class AddAlarmInfoAction extends ActionSupport {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	
+	
+
+	public int getIdentify() {
+		return identify;
+	}
+
+
+
+	public void setIdentify(int identify) {
+		this.identify = identify;
+	}
+
+
+
+	public int getSyn() {
+		return syn;
+	}
+
+
+	public void setSyn(int syn) {
+		this.syn = syn;
+	}
+
+
+
+
 
 	public double getLongitude() {
 		return longitude;

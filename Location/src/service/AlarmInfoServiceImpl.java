@@ -42,6 +42,11 @@ public class AlarmInfoServiceImpl implements AlarmInfoService {
 		return alarmInfoDao.getAlarmInfoList(page, rows);	
 	}
 
+	@Override
+	public List<AlarmInfo> getOnceAlarmInfoList(int userId, int identify) {
+		return alarmInfoDao.getOnceAlarmInfoList(userId, identify);
+	}
+
 	
 
 }
