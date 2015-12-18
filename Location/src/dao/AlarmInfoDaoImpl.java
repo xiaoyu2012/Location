@@ -92,10 +92,14 @@ public class AlarmInfoDaoImpl implements AlarmInfoDao {
         log.debug("get AlarmInfo with page" + page + ", row=" + rows );
         //当为缺省值的时候进行赋值  
         int currentpage = Integer.parseInt((page == null || page == "0") ? "1": page);	//第几页  
-        int pagesize = Integer.parseInt((rows == null || rows == "0") ? "10": rows);	//每页多少行        
+        int pagesize = Integer.parseInt((rows == null || rows == "0") ? "10": rows);	//每页多少行       
+        System.out.println("currentpage=" + currentpage + ", pagesize=" + pagesize);
         try {
         	Session session = HibernateSessionFactory.getSession();
-        	List<AlarmInfo> list = session.createQuery("from AlarmInfo as alarmInfo where alarmInfo.syn = 1").setFirstResult((currentpage-1)*pagesize).setMaxResults(pagesize).list();
+        	Query query = session.createQuery("from AlarmInfo as alarmInfo where alarmInfo.syn = 1");
+        	query.setMaxResults(pagesize);
+        	query.setFirstResult((currentpage-1)*pagesize);
+        	List<AlarmInfo> list = query.list();
         	HibernateSessionFactory.closeSession();
         	return list;  
         } catch(RuntimeException re) {
@@ -110,7 +114,7 @@ public class AlarmInfoDaoImpl implements AlarmInfoDao {
     	log.debug("get AlarmInfo Total Number:" );
     	try{
     		Session session = HibernateSessionFactory.getSession();
-    		int totel = session.createQuery("from AlarmInfo").list().size();
+    		int totel = session.createQuery("from AlarmInfo as ai where ai.syn = 1").list().size();
     		HibernateSessionFactory.closeSession();
     		return totel;
     	} catch(RuntimeException re) {

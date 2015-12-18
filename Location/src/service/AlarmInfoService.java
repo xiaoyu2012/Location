@@ -29,7 +29,7 @@ public interface AlarmInfoService {
 	
 	
 	/**
-	 * 统计一共有多少数据   
+	 * 统计一共有多少报警记录， syn=1的alarmInfo算作一条报警记录
 	 * @return AlarmInfoTotalNumber
 	 */
 	public int getAlarmInfoTotal();

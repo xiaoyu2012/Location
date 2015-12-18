@@ -43,7 +43,10 @@ public class GetAllAlarmInfoAction extends ActionSupport {
 		}
 			
 		
-		this.toBeJson(jsonList, jsonList.size());
+		/*
+		 * 第二个参数是total， 将控制datagrad控件的总数， 不用设置为jsonList.size()， 因为jsonList.size()为pagesize的大小
+		 */
+		this.toBeJson(jsonList, alarmInfoService.getAlarmInfoTotal());  //第二个参数是total， 将控制
 		return SUCCESS;
 	}
 

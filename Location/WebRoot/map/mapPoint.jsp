@@ -49,7 +49,7 @@ body,html,#allmap {
 	var point = new BMap.Point("<%=longitude%>", "<%=latitude%>");
 	var marker = new BMap.Marker(point);  // 创建标注
 	map.addOverlay(marker);              // 将标注添加到地图中
-	map.centerAndZoom(point, 15);
+	map.centerAndZoom(point, 16);
 	var opts = {
 	  width : 200,     // 信息窗口宽度
 	  height: 150,     // 信息窗口高度

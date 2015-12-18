@@ -39,7 +39,7 @@ body {
 			<td valign="top"><table width="100%" height="532" border="0"
 					cellpadding="0" cellspacing="0" class="login_bg">
 					<tr>
-						<td width="49%" align="right"><table width="91%" height="532"
+						<td width="49%" align="right"><table width="98%" height="532"
 								border="0" cellpadding="0" cellspacing="0" class="login_bg2">
 								<tr>
 									<td height="138" valign="top"><table width="89%"
@@ -101,7 +101,7 @@ body {
 
 														<div class="col-md-offset-4 col-md-4">
 															<div class="panel panel-primary">
-																<div class="panel-heading">请登陆</div>
+																<div class="panel-heading">请登陆(管理员名和密码都是123)</div>
 																<div class="panel-body">
 																	<p>																	
 																		<FONT color="red">${tip}</FONT>
