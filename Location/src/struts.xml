@@ -16,7 +16,7 @@
 			<result name="login">/login.jsp</result>
 		</global-results>
 		
-		<action name="getAllAlarmInfoAction" class="action.AlarmInfoAction" method="getAllAlarmInfo">
+		<action name="getAllAlarmInfoAction" class="action.GetAllAlarmInfoAction" method="getAllAlarmInfo">
 			<result type="json">  </result>      <!-- json类型的result， 不需要视图资源， 不需要加/east.jsp -->	
 			<interceptor-ref name="defaultStack"/>
 			<!-- 应用自定义拦截器 -->
@@ -37,6 +37,10 @@
  		</action> 	
 		<action name="showAllUserAction" class="action.ShowAllUserAction">
 			<result name="success" > /WEB-INF/content/userinfo.jsp</result>
+		</action>
+		
+		<action name="getOnceAlarmInfoAction" class="action.GetOnceAlarmInfoAction">
+			<result name="success"> /map/mapPoint.jsp</result>
 		</action>
 	</package>
 	
