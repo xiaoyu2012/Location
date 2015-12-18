@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.AlarmInfoDaoImpl;
 
 /**
- * 返回一次报警时的全部的位置信息， identify相同， syn递增。
+ * 返回一次报警时的全部的位置信息， identify相同， syn从1开始递增。
  */
 public class GetOnceAlarmInfoAction extends ActionSupport {
 	private static final Log log = LogFactory.getLog(AlarmInfoDaoImpl.class);
