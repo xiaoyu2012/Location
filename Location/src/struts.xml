@@ -26,6 +26,10 @@
 		<action name="addAlarmInfoAction" class="action.AddAlarmInfoAction">
 			<result type="json"> </result>
 		</action>
+		
+		<action name="userLoginAction" class="action.UserLoginAction"> 
+			<result type="json"></result>
+		</action>
 	</package>
 	
 	<package name="struts2" extends="struts-default">

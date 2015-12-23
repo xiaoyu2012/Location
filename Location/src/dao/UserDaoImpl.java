@@ -89,19 +89,21 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public List<User> findByTel(String tel) {
+	public User findByTel(String tel) {
 		log.debug("getting User instance with tel: " + tel);
 		
 		try {
-			Session session = HibernateSessionFactory.getSession();//获得Session对象		
-			System.out.println("1111111");
+			Session session = HibernateSessionFactory.getSession();//获得Session对象			
 			Query query = session.createQuery("from User as user where user.tel = ?");		
-			query.setString(0, tel);		//查询获取用户名字
-			System.out.println("2222221");			
+			query.setString(0, tel);		//查询获取用户名字			
 			List<User> list = query.list();					//查询结果保存到list中
-			System.out.println(list.get(0).getTel());
+			//System.out.println(list.get(0).getTel());
 			HibernateSessionFactory.closeSession();		//关闭Session对象
-			return list;
+			if(!list.isEmpty()) {
+				return (User)list.get(0);
+			}else{
+				return null;
+			}
 			
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

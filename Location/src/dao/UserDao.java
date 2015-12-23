@@ -32,7 +32,7 @@ public interface UserDao {
 	 * @param tel
 	 * @return
 	 */
-	public List<User> findByTel(String tel);
+	public User findByTel(String tel);
 	
 	public List<User> findAll();
 }

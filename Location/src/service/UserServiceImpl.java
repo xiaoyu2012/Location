@@ -18,8 +18,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public int allowedLogin(int userId, String password) {
-		User user = userDao.findById(userId);	
+	public int allowedLogin(String tel, String password) {
+		User user = userDao.findByTel(tel);
 		if(user == null)
 			return LOGIN_NOUSER;     //找不到此用户
 		else if(user.getPassword().equals(password))

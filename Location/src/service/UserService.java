@@ -17,11 +17,11 @@ public interface UserService {
 	
 	/**
 	 * 根据手机号和密码，判断是否能够登陆
-	 * @param UserName 用户名
+	 * @param Tel 手机号
 	 * @param password 密码
 	 * @return
 	 */
-	public int allowedLogin(int	userId, String password);
+	public int allowedLogin(String tel, String password);
 	
 	public List<User> showAllUser();
 

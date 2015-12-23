@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>手机实时报警定位系统登录页面</title>
+<title>实时手机报警定位系统登录页面</title>
 <jsp:include page="include.jsp"></jsp:include>
 <style type="text/css">
 <!--
@@ -54,7 +54,7 @@ body {
 												<td height="198" align="right" valign="top">
 													<div class="panel panel-primary">
 														<div class="panel-heading">
-															<h1 class="panel-title"><strong>手机实时定位报警系统</strong></h1>
+															<h1 class="panel-title"><strong>实时手机报警定位系统</strong></h1>
 														</div>
 														<div class="panel-body">
 															<table width="100%" border="0" cellpadding="0"
@@ -133,29 +133,7 @@ body {
 
 
 
-													</div> <%-- <form name="myform" action="loginAction.action" method="post">
-	                        <table cellSpacing="0" cellPadding="0" width="100%" border="0" height="143" id="table212">
-	                          <tr>
-	                          	<td colspan="2"><FONT color="red"><s:actionerror/></FONT></td><!--显示错误信息 --> 
-	                          </tr>
-	                          <tr>
-	                            <td width="14%" height="38" class="top_hui_text"><span class="login_txt">管理员名：&nbsp;&nbsp; </span></td>
-	                            <td height="38" colspan="2" class="top_hui_text"><input name="adminName" class="editbox4" value="" size="20">                            </td>
-	                          </tr>
-	                          <tr>
-	                            <td width="14%" height="35" class="top_hui_text"><span class="login_txt"> 密 码： &nbsp;&nbsp; </span></td>
-	                            <td height="35" colspan="2" class="top_hui_text"><input class="editbox4" type="password" size="20" name="password">
-	                              <img src="images/luck.gif" width="19" height="18"> </td>
-	                          </tr>
-	                      
-	                          <tr>
-	                            <td height="35" >&nbsp;</td>
-	                            <td width="19%" height="35" ><input name="Submit" type="submit" class="button" id="Submit" value="登 录"> </td>
-	                            <td width="67%" class="top_hui_text"><input name="cs" type="button" class="button" id="cs" value="取 消" onClick="showConfirmMsg1()"></td>
-	                          </tr>
-	                        </table>
-	                        <br>
-	                    </form> --%>
+													</div> 
 												</td>
 											</tr>
 											<tr>
@@ -174,7 +152,7 @@ body {
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					class="login-buttom-bg">
 					<tr>
-						<td align="center"><span class="login-buttom-txt STYLE1">实时定位报警系统Copyright
+						<td align="center"><span class="login-buttom-txt STYLE1">实时手机报警定位系统Copyright
 								&copy; 2014-2015 </span></td>
 					</tr>
 				</table>
