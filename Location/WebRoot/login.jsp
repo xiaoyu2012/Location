@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 <head>
-<title>实时手机报警定位系统登录页面</title>
+<title>实时手机定位报警系统登录页面</title>
 <jsp:include page="include.jsp"></jsp:include>
 <style type="text/css">
 <!--
@@ -45,16 +45,17 @@ body {
 									<td height="138" valign="top"><table width="89%"
 											height="427" border="0" cellpadding="0" cellspacing="0">
 											<tr>
-												<td height="149">&nbsp;</td>
+												<td height="149"><img
+													src="images/download.png" width="252" height="247"></td>
 											</tr>
 											<tr>
-												<td height="80" align="right" valign="top">&nbsp;</td>
+												<td height="80" align="centert" valign="top">扫二维码下载安卓版APP</td>
 											</tr>
 											<tr>
 												<td height="198" align="right" valign="top">
 													<div class="panel panel-primary">
 														<div class="panel-heading">
-															<h1 class="panel-title"><strong>实时手机报警定位系统</strong></h1>
+															<h1 class="panel-title"><strong>实时手机定位报警系统</strong></h1>
 														</div>
 														<div class="panel-body">
 															<table width="100%" border="0" cellpadding="0"
@@ -101,7 +102,7 @@ body {
 
 														<div class="col-md-offset-4 col-md-4">
 															<div class="panel panel-primary">
-																<div class="panel-heading">请登陆(管理员名和密码都是123)</div>
+																<div class="panel-heading">请登陆</div>
 																<div class="panel-body">
 																	<p>																	
 																		<FONT color="red">${tip}</FONT>
@@ -137,6 +138,7 @@ body {
 												</td>
 											</tr>
 											<tr>
+												
 												<td width="433" height="164" align="right" valign="bottom"><img
 													src="images/login-wel.gif" width="242" height="138"></td>
 												<td width="57" align="right" valign="bottom">&nbsp;</td>
@@ -152,8 +154,8 @@ body {
 				<table width="100%" border="0" cellspacing="0" cellpadding="0"
 					class="login-buttom-bg">
 					<tr>
-						<td align="center"><span class="login-buttom-txt STYLE1">实时手机报警定位系统Copyright
-								&copy; 2014-2015 </span></td>
+						<td align="center"><span class="login-buttom-txt STYLE1">实时手机定位报警系统Copyright
+								&copy; 2015-2016 </span></td>
 					</tr>
 				</table>
 			</td>

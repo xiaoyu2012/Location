@@ -27,7 +27,7 @@ public class Test {
 		ai.setState(0);
 		AlarmInfoService alarmService = new AlarmInfoServiceImpl();
 		alarmService.addAlarmInfo(ai);
-		List list = alarmService.getAlarmInfoList("1", "5");
+		List list = alarmService.getAlarmInfoList(0, "1", "5");
 		List<String> jsonList = new ArrayList<String>();
 		for (int i = 0; i < list.size(); i++) {
 			AlarmInfo alarmInfo = (AlarmInfo)list.get(i);
@@ -36,7 +36,7 @@ public class Test {
 		}
 		
 		try {
-			toBeJson(jsonList, alarmService.getAlarmInfoTotal());
+			toBeJson(jsonList, alarmService.getAlarmInfoTotal(0));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

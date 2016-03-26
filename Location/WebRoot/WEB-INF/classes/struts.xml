@@ -27,7 +27,19 @@
 			<result type="json"> </result>
 		</action>
 		
+		<action name="addUserAction" class="action.AddUserAction" >
+			<result type="json"> </result>
+		</action>
+		
 		<action name="userLoginAction" class="action.UserLoginAction"> 
+			<result type="json"></result>
+		</action>
+		
+		<action name="getUserInfo" class="action.GetUserInfo">
+			<result type="json"></result>
+		</action>
+		
+		<action name="changeStateAction" class="action.ChangeStateAction">
 			<result type="json"></result>
 		</action>
 	</package>

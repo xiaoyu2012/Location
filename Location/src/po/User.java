@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import net.sf.json.JSONObject;
+
 @Entity
 @Table(name="user")
 public class User {
@@ -177,6 +179,30 @@ public class User {
 	public void setAlarmInfos(Set<AlarmInfo> alarmInfos) {
 		this.alarmInfos = alarmInfos;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", sex="
+				+ sex + ", age=" + age + ", emergencyName=" + emergencyName
+				+ ", emergencyTel=" + emergencyTel + "]";
+	}
 	
+	/**
+	 * 返回USer对象的一个json
+	 * @return 返回User对象的一个json的String
+	 */
+	@SuppressWarnings("deprecation")
+	public String toJSONString() {      
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("id", this.getUserId());
+		jsonObject.put("name", this.getUserName());
+		jsonObject.put("tel", this.getTel());
+		jsonObject.put("sex", this.getSex());
+		jsonObject.put("age", this.getAge());
+		jsonObject.put("ename", this.getEmergencyName());
+		jsonObject.put("etel", this.getEmergencyTel());			
+		return jsonObject.toString();
+	}
+
 	
 }

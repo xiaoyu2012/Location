@@ -26,6 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     <s:form cssClass="form"  action="addAlarmInfoAction" enctype="multipart/form-data" method="post" theme="simple">    
     	<div class="form-group">
+    			<!-- <label for="userId">用户id</label> -->
 				<s:textarea cssClass="form-control" name="userId" placeholder="用户id" />
 		</div>
 		<div class="form-group">

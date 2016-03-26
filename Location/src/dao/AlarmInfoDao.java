@@ -13,6 +13,15 @@ public interface AlarmInfoDao {
 	 */
 	public boolean insert(AlarmInfo	alarminfo);   
 	
+	
+	
+	/**
+	 * 更新update
+	 * @param alarmInfoId
+	 * @return
+	 */
+	public boolean update(AlarmInfo alarmInfo);
+	
 	/**
 	 * 根据alarmInfoId查找一个AlarmInfoId对象
 	 * @param alarmInfoId
@@ -33,7 +42,7 @@ public interface AlarmInfoDao {
 	 * @param rows 每页几行
 	 * @return  AlarmInfoList
 	 */
-	public List<AlarmInfo> getAlarmInfoList(String page, String rows);
+	public List<AlarmInfo> getAlarmInfoList(int state, String page, String rows);
 	
 	
 	/**
@@ -49,5 +58,5 @@ public interface AlarmInfoDao {
 	 * 统计一共有多少数据   
 	 * @return AlarmInfoTotalNumber
 	 */
-	public int getAlarmInfoTotal();
+	public int getAlarmInfoTotal(int state);
 }

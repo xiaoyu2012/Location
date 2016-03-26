@@ -13,6 +13,7 @@
 	double latitude = lastAlarmInfo.getLatitude();
 	String address = lastAlarmInfo.getAddress();
 	String time = lastAlarmInfo.getTime();
+	String remark = lastAlarmInfo.getRemark();
 	/*
 	String longitude = request.getParameter("longitude");
 	String latitude = request.getParameter("latitude");
@@ -56,7 +57,7 @@ body,html,#allmap {
 	  title : "现在的位置：" , // 信息窗口标题
 	  enableMessage:true,//设置允许信息窗发送短息
 	}
-	var infoWindow = new BMap.InfoWindow("<%= "地址：" + address + "<br/>经度： " + longitude + "<br/>纬度：" + latitude  + "<br/>   " + time%>", opts);  // 创建信息窗口对象
+	var infoWindow = new BMap.InfoWindow("<%= "地址：" + address + "<br/>经度： " + longitude + "<br/>纬度：" + latitude  + "<br/>附加信息： " + remark + "<br/>   " + time%>", opts);  // 创建信息窗口对象
 	map.openInfoWindow(infoWindow,point); //开启信息窗口 
 		
 	map.setCurrentCity("武汉");          // 设置地图显示的城市 此项是必须设置的

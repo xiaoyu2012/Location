@@ -20,6 +20,14 @@
 
 </head>
 
+<style>
+	 table td
+	 {	 	
+	 	padding:5px;	 	
+	 	height:12px;
+	 }
+</style>
+
 <body id="mainLayout" class="easyui-layout">
 
 	
@@ -39,6 +47,44 @@
 				<li><a>查询报警信息</a></li>
 			</div>
 		</div>
+		
+		<div id="p" class="easyui-panel" title="报警人信息" style="width:100%;height:400px;padding:2px;">
+			<table cellpadding="10">
+				<tr>
+	    			<td> <span class="label label-primary">报警人ID:</span></td> </tr>
+	    		<tr>
+	    			<td style="border-bottom:1px solid green"> <span id="id" class="label label-info"></span></td></tr>
+	    		<tr>
+	    			<td> <span class="label label-primary">报警标识号:</span></td> </tr>
+	    		<tr>
+	    			<td style="border-bottom:1px solid green"> <span id="identify" class="label label-info"></span></td></tr>
+	    		<tr>
+	    			<td><span class="label label-primary">报警人姓名:</span></td></tr>  
+	    		<tr> 
+	    			<td style="border-bottom:1px solid green"> <span id="name" class="label label-info"></span></td></tr>    	
+	    		<tr>
+	    			<td><span class="label label-primary">性别:</span></td></tr>  
+	    		<tr> 
+	    			<td style="border-bottom:1px solid green"> <span id="sex" class="label label-info"></span></td></tr>    	
+	    		
+	    		<tr>
+	    			<td> <span class="label label-primary">手机号:</span></td></tr>
+	    		<tr>
+	    			<td style="border-bottom:1px solid green"> <span id="tel" class="label label-info"></span></td></tr>  
+	    		<tr>
+	    			<td> <span class="label label-primary">紧急联系人姓名:</span></td></tr>	    			
+	    		<tr> 	    		
+	    			<td style="border-bottom:1px solid green"> <span id="ename" class="label label-info"></span></td></tr>  
+	    		<tr>
+	    			<td> <span class="label label-primary">紧急联系人手机号:</span></td></tr>
+	    		<tr>
+	    			<td style="border-bottom:1px solid green"> <span id="etel" class="label label-info"></span></td> </tr>
+	    	</table>
+	    	
+	    	
+	    	<button type="submit" class="btn btn-success" onclick="changeState2(alarmInfoId,2);">确定出警  </button>
+	    
+		</div>
 	</div>
 	
 	<div data-options="region:'east', href:'east.jsp', split:true" style="width: 300px; padding: 3px;"> </div>
@@ -51,7 +97,6 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		var index = 0;
 		function addTab(title, url){
 			if ($('#main_tab').tabs('exists', title)){
 				$('#main_tab').tabs('select', title);
@@ -63,9 +108,30 @@
 					closable:true
 				});
 			}
-		}			
+		}		
+		
+		function changeState2(alarmInfoId,state){
+			var xhr = getXhr();
+			var url = "changeStateAction.action?alarmInfoId=" + alarmInfoId + "&state=" + state;
+			xhr.open("get",url, true);	
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4){
+					if(xhr.status==200){
+				       var message = xhr.responseText;
+				       if(message == "0"){
+				    	   alert("请重试！");
+				       }else{
+				    	   alert("处理成功！");
+				       }
+				       
+				   	}
+				}
+			};
+			
+			xhr.send(null);
+	}
 	</script>
-	</div>
+
 
 	<div
 		data-options="region:'south',href:'south.jsp',border:false"

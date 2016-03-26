@@ -8,6 +8,8 @@ public interface UserService {
 	public static final int LOGIN_SUCCESS = 1;
 	public static final int LOGIN_NOUSER = 2;
 	public static final int LOGIN_FAIL = 3;
+	
+	public User findById(int id);
 	/**
 	 * 添加一个新用户
 	 * @param user

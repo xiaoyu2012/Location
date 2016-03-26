@@ -26,6 +26,7 @@ public class GetAllAlarmInfoAction extends ActionSupport {
 	private JSONObject jsonObj;
 	private String rows;// 每页显示的记录数
 	private String page;// 当前第几页
+	private int state;
 	private AlarmInfoService alarmInfoService;
 
 	
@@ -33,7 +34,7 @@ public class GetAllAlarmInfoAction extends ActionSupport {
 	public String getAllAlarmInfo() throws Exception {  
 		alarmInfoService = new AlarmInfoServiceImpl();
 		System.out.println("page=" + page + ", rows=" + rows);
-		List list = alarmInfoService.getAlarmInfoList(page, rows);
+		List list = alarmInfoService.getAlarmInfoList(state, page, rows);
 		List<String> jsonList = new ArrayList<String>();
 		for(int i = 0; i < list.size(); i++){
 			AlarmInfo alarmInfo = (AlarmInfo)list.get(i);
@@ -44,9 +45,9 @@ public class GetAllAlarmInfoAction extends ActionSupport {
 			
 		
 		/*
-		 * 第二个参数是total， 将控制datagrad控件的总数， 不用设置为jsonList.size()， 因为jsonList.size()为pagesize的大小
+		 * 第二个参数是total， 将控制datagrad控件的总数， 不能设置为jsonList.size()， 因为jsonList.size()为pagesize的大小
 		 */
-		this.toBeJson(jsonList, alarmInfoService.getAlarmInfoTotal());  //第二个参数是total， 将控制
+		this.toBeJson(jsonList, alarmInfoService.getAlarmInfoTotal(state));  //第二个参数是total， 将控制datagrad控件的总数
 		return SUCCESS;
 	}
 
@@ -83,6 +84,14 @@ public class GetAllAlarmInfoAction extends ActionSupport {
 
 	public void setPage(String page) {
 		this.page = page;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
 	}
 	
 	
